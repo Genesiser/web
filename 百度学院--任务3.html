@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        padding: 20px;
+    }
+
+    .container {
+        background-color: #eee;
+        padding: 20px;
+        border: 1px solid #999;
+    }
+    /*重要*/
+    .container:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    .box {
+        background-color: white;
+    }
+
+    .intro  {
+        width: 160px;
+        float: left;
+        border: 1px solid #999;
+    }
+
+    img {
+        width: 80px;
+        height: 80px;
+        border: 1px solid #999;
+    }
+
+    .intro span {
+        vertical-align: top;
+        margin-left: 20px;
+
+    }
+
+    .content {
+        margin-left: 220px;
+        margin-right: 140px;
+    }
+
+    .content p {
+        text-indent: 2em;
+    }
+
+    .member {
+        width: 80px;
+        float: right;
+    }
+
+    .member img {
+        margin-top: 20px;
+        display: block;
+    }
+
+    .member img:first-child {
+        margin-top: 20px;
+    }
+</style>
+<body>
+<div class="container">
+
+    <div class="intro box">
+        <img src="team_logo.png" width="80px" height="80px" alt="wa2" />
+        <span>小白升级中</span>
+    </div>
+
+    <aside class="member box">
+        <img src="team_logo.png" alt="member1" />
+        <img src="team_logo.png" alt="member2" />
+        <img src="team_logo.png" alt="member3" />
+
+    </aside>
+
+    <section class="content box">
+        <h1>介绍</h1>
+        <p>由热爱前端技术的三个大学在校生组成，正如我们的队名“小白升级中”所表现的那样，希望通过这次课程的学习，能让我们的前端技术水平有一个增长。</p>
+
+    </section>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<style>
+    .wrap{background-color:gray;position: absolute;top: 25%;bottom: 25%;left: 25%;right: 25%}
+</style>
+<script>
+    window.onload=function()
+    {
+        var oBtn=document.getElementById('btn1');
+        var oTxt=document.getElementById('text');
+        oBtn.onclick=function()
+        {
+            if(oTxt.value.length<4)
+            {
+                var oDiv=document.getElementById('mistake');
+                oDiv.innerHTML='请填入4~16位的字符';
+                oDiv.style.color='red';
+            }
+        }
+    };
+</script>
+<body>
+<div class="wrap">
+    <input type="text" id="text"/>
+    <input type="button" class="button" value="验证" id="btn1"/>
+    <div id="mistake">必填，长度为4~16字符</div>
+</div>
+
+</body>
+</html>

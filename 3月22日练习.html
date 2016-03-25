@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+
+</head>
+<style>
+    *{margin: 0;padding: 0}
+    body{
+        background-color: #cccccc;
+        font-family: "微软雅黑",serif;
+        font-size: small;
+        margin: 0;
+        padding: 0;
+
+    }
+
+
+    #banner{
+        background-color: #000000;
+        margin: 0;
+        padding: 0;
+        height: 47px;
+        width: 100%;
+
+    }
+    #logo{background:url("百度logo.png");float: left;width: 133px;height: 47px;margin-left: 30px;}
+
+    #banner ul{float: right}
+    #banner ul li{display: inline;}
+    #banner ul li a{display: inline-block;line-height: 47px;text-decoration: none;color: white;padding-right: 35px;}
+
+     .article{
+        background-color: white;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    .list2{
+        list-style-type: none;
+    }
+    #main{
+        margin-right: 450px;
+        margin-left: 10px;
+
+    }
+
+    #main dd{
+        text-align: center;
+        border: thin solid;
+        float: left;
+        height: 100px;
+        margin: 15px;
+        padding: 10px 10px 0 10px;
+    }
+
+    #main dd img{
+
+        width: 90px;
+        height: 70px;
+    }
+
+    .pic-bottom{
+        clear: both;
+    }
+
+    #sidebar{
+        background-color: white;
+        width: 350px;
+        margin: 20px;
+        padding: 20px;
+        float: right;
+    }
+
+    #tableone{
+        border: thin solid black;
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    #tableone th,td{
+        border: thin solid gray;
+        padding: 3px;
+    }
+
+    #tableone th{
+        background-color: #000000;
+        color: white;
+    }
+
+    .trfoot{
+        background-color: #d3d3d3;
+    }
+
+
+
+    #sidebar h2{
+        border-left: 3px solid #BBBBBB;
+        padding: 10px;
+    }
+
+    #signin{
+        margin: 0px auto;
+    }
+    #signin td{
+        border-color: transparent;
+    }
+
+    #confirm{
+        width: 100%;
+        height: 50px;
+        background-color: #1E90FF;
+        border-radius: 15px;
+        font-size: 150%;
+        color: white;
+    }
+
+    footer{
+        background-color:#000000;
+        color: white;
+        text-align: center;
+        margin: 0;
+        font-size: 80%;
+        height: 60px;
+        padding: 10px;
+        clear: both;
+    }
+</style>
+<body>
+
+
+<nav id="banner">
+    <div id="logo"></div>
+
+    <ul>
+        <li> <a  href="http://www.baidu.com">导航连接一</a> </li>
+        <li> <a  href="http://www.baidu.com">导航连接二</a> </li>
+        <li> <a href="http://www.baidu.com">导航连接三</a> </li>
+        <li> <a href="http://www.baidu.com">导航连接四</a> </li>
+    </ul>
+</nav>
+
+<aside id="sidebar">
+    <h2>这里以后是个侧栏，这是侧栏的标题</h2>
+    <!--<h3>侧栏注册窗口标题</h3>-->
+
+    <form>
+        <table id="signin">
+            <tr>
+                <td align="right">请输入邮箱地址:</td>
+                <td align="left"><input type="text" name="Emailaddress" value="这是一个文本输入框" ></td>
+            </tr>
+            <tr>
+                <td align="right"></td>
+                <td class="prompt" align="left">邮箱地址请按要求格式输入</td>
+            </tr>
+            <tr>
+                <td align="right">请输入密码：</td>
+                <td align="left"><input type="password" name="Password-1" value="这是一个文本输入框" ></td>
+            </tr>
+            <tr>
+                <td align="right">请重复输入密码：</td>
+                <td align="left"><input type="password" name="Password-2" value="这是一个文本输入框" ></td>
+            </tr>
+            <tr>
+                <td align="right"></td>
+                <td class="prompt" align="left">密码为6-16为英文数字</td>
+            </tr>
+
+            <tr>
+                <td align="right">性别：</td>
+                <td align="left"><input type="radio" checked="checked" name="Sex" value="male">男<input type="radio" name="Sex" value="female">女</td>
+            </tr>
+            <tr>
+                <td align="right">城市：</td>
+                <td align="left">
+                    <select name="City">
+                        <option value="北京">北京</option>
+                        <option value="上海">上海</option>
+                        <option value="广州">广州</option>
+                        <option value="深圳">深圳</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">爱好：</td>
+                <td align="left">
+                    <input type="checkbox" name="Interest" value="sports">运动
+                    <input type="checkbox" name="Interest" value="art">艺术
+                    <input type="checkbox" name="Interest" value="science">科学
+                </td>
+            </tr>
+            <tr>
+                <td align="right" valign="top">个人描述：</td>
+                <td align="left"><textarea rows="5" cols="30">这是一个多行输入框，输入您的个人描述</textarea></td>
+            </tr>
+        </table>
+        <input id="confirm" type="button" value="确认提交" >
+
+    </form>
+
+</aside>
+
+<div id="main">
+    <div class="article">
+        <h2>文章一级标题</h2>
+        <br>
+        <h3>文章二级标题</h3>
+        <br>
+        <h4>文章作者 文章发布时间</h4>
+        <br>
+
+        <p>这是一个很长很长的段落,这是一个很长很长的段落,这是一个很长很长的段落,这是一个很长很长的段落,这是一个很长很长的段落,这是一个很长很长的段落,这是一个很<br>
+            长很长的段落，换行了<br>
+            这是一个很长很长的段落,这是一个很长很长的段落,这是一个很长很长的段落,这是一个很长很长的段落,这是一个很长很长的段落,这是一个很长很长的段落,换行了<br>
+            这是一个很长很长的段落,这是一个很长很长的段落,<a href="http://ife.baidu.com">这有一个链接链接到http://ife.baidu.com</a>这是一个很长很长的段落,这是一个很长很长的段落,<strong>这里有个粗体字</strong>这是一个很长的段<br>
+            很长的段落，这是一个很长很长的段落,这是一个很长很长的段落,这是一个很长很长的段落,这是一个很长很长的段落,这是一个很长很长的段落,这是一个很长很长的段落。
+        </p>
+
+        <img src="task_1_1_1.jpg">
+        <p>这是一个很长很长的段落,这是一个很长很长的段落,这是一个很长很长的段落,这是一个很长很长的段落,这是一个很长很长的段落,这是一个很长很长的段落,这是一个很<br>
+            长很长的段落,这是一个很长很长的段落,换行了<br>
+            这是一个很长很长的段落,这是一个很长很长的段落,这是一个很长很长的段落，<strong>这里有个粗体字</strong>这是一个很长很长的段落,这是一个很长很长的段落,<a href="http://ife.baidu.com" target="_blank">这里有一个链接点击后打开<br>
+                新窗口链接http://ife.baidu.com</a>这是一个很长很长的段落,这是一个很长很长的段落,这是一个很长很长的段落,这是一个很长很长的段落,这是一个很长很长的段落,这是一个很<br>
+            长很长的段落,这是一个很长很长的段落, 这是一个很长很长的段落, 这是一个很长很长的段落, 这是一个很长很长的段落, 这是一个很长很长的段落.
+        </p>
+    </div >
+
+    <div class="article" >
+        <h2>另一个文章一级标题</h2>
+        <h3>文章二级标题</h3>
+        <p class="author">文章作者&nbsp;发表时间</p>
+        <p>
+            这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，<br>
+            这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，<br>
+            这是一个很长的段落，这是一个很长的段落
+            <a href="http://ife.baidu.com">这里有一个连接到http://ife.baidu.com</a>
+            这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，
+            <strong>这里有个粗体字</strong>
+            这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，
+        </p>
+
+        <img src="task_1_1_1.jpg" alt="kobe">
+
+        <ul class="list2">
+            <li>列表项目一</li>
+            <li>列表项目二</li>
+            <li>列表项目三</li>
+        </ul>
+    </div>
+
+    <div class="article" >
+        <h2>图片</h2>
+        <dl>
+            <dd>
+                好看的图片<br>
+                <img src="task_1_1_1.jpg" ><br></p>
+            </dd>
+            <dd>
+                好看的图片<br>
+                <img src="task_1_1_1.jpg"><br></p>
+            </dd>
+            <dd>
+                好看的图片<br>
+                <img src="task_1_1_1.jpg"><br></p>
+            </dd>
+            <dd>
+                好看的图片<br>
+                <img src="task_1_1_1.jpg"><br></p>
+            </dd>
+            <dd>
+                好看的图片<br>
+                <img src="task_1_1_1.jpg"><br></p>
+            </dd>
+            <dd>
+                好看的图片<br>
+                <img src="task_1_1_1.jpg" ><br></p>
+            </dd>
+            <dd>
+                好看的图片<br>
+                <img src="task_1_1_1.jpg" ><br></p>
+            </dd>
+            <dd>
+                好看的图片<br>
+                <img src="task_1_1_1.jpg" ><br></p>
+            </dd>
+            <dd>
+                好看的图片<br>
+                <img src="task_1_1_1.jpg" ><br></p>
+            </dd>
+            <dd>
+                好看的图片<br>
+                <img src="task_1_1_1.jpg" ><br></p>
+            </dd>
+        </dl>
+        <div class="pic-bottom"></div>
+    </div>
+
+    <div class="article" >
+        <h2>最后一个文章一级标题</h2>
+        <h3>文章二级标题</h3>
+        <p class="author">文章作者&nbsp;发表时间</p>
+
+        <ol>
+            <li>排名1</li>
+            <li>排名2</li>
+            <li>排名3</li>
+        </ol>
+
+
+        下面是一个表格，给表格加一个border="1"好让你看出是个表格
+        <table id="tableone" border="1">
+            <tr>
+                <th align="left">表头</th>
+                <th align="left">表头</th>
+                <th align="left">表头</th>
+            </tr>
+            <tr>
+                <td>表内单元格</td>
+                <td>表内单元格</td>
+                <td><a href="#banner">返回顶端</a></td>
+            </tr>
+            <tr>
+                <td>表内单元格</td>
+                <td>表内单元格</td>
+                <td><a href="http://www.baidu.com" target="_blank">百度搜索</a></td>
+            </tr>
+            <tr>
+                <td>表内单元格</td>
+                <td>表内单元格</td>
+                <td><a href="#foot">直达底部</a></td>
+            </tr>
+            <tr class="trfoot">
+                <td>总计</td>
+                <td colspan="2">1000</td>
+
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+
+<footer>
+    <p id="foot">版权所有&copy;</p>
+</footer>
+
+
+
+</body>
+</html>

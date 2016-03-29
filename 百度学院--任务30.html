@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单验证</title>
+</head>
+<script>
+    window.onload=function()
+    {
+
+        /*姓名处理部分*/
+        function name_check()
+        {
+            var name=document.getElementsByClassName('name');
+            var n1=name[0];//输入框
+            var n2=name[1];//要显示提示信息的地方
+            n1.onclick=function()
+            {
+                n2.innerHTML='必填，长度为4~16字符';
+                n2.style.color='black';
+            };
+            n1.onblur=function()
+            {
+
+                if(n1.value.length==0)
+                {
+                    n2.innerHTML='姓名不能为空！';
+                    n2.style.color='red';
+
+                }
+                else if(n1.value.length<4||n1.value.length>16)
+                {
+                    n2.innerHTML='请填入4~16个字符!';
+                    n2.style.color='red';
+
+                }
+                else if(n1.value.length>=4&&n1.value.length<=16)
+                {
+                    n2.innerHTML='可以使用';
+                    n2.style.color='green';
+
+                }
+            }
+        }
+
+        function password_check()
+        {
+            var password=document.getElementsByClassName('password');
+            var p1=password[0];
+            var p2=password[1];
+            p1.onclick=function()
+            {
+                p2.innerHTML='请输入由四到十六个字符组成的密码';
+                p2.style.color='black';
+            };
+            p1.onblur=function()
+            {
+                if(p1.value.length==0)
+                {
+                    p2.innerHTML='密码不能为空！'
+                    p2.style.color='red';
+
+                }
+                else if(p1.value.length<4||p1.value.length>16)
+                {
+                    p2.innerHTML='请填入4~16个字符!';
+                    p2.style.color='red';
+
+                }
+                else if(p1.value.length>=4&&p1.value.length<=16)
+                {
+                    p2.innerHTML='密码通过';
+                    p2.style.color='green';
+
+                }
+            };
+        }
+        /*密码处理部分*/
+
+
+        /*密码确认部分*/
+        function password_again_check()
+        {
+            var PasswordAgain=document.getElementsByClassName('ensure');
+            var P1=PasswordAgain[0];
+            var P2=PasswordAgain[1];
+            P1.onclick=function()
+            {
+                P2.innerHTML='请再次输入密码';
+                P2.style.color='black';
+            };
+            P1.onblur=function()
+            {
+                if(document.getElementsByClassName('password')[0].value==P1.value)
+                {
+                    P2.innerHTML='两次密码一致!';
+                    P2.style.color='green';
+
+                }
+                else
+                {
+                    P2.innerHTML='两次密码不一致，请仔细输入!';
+                    P2.style.color='red';
+
+                }
+            };
+        }
+
+        /*邮箱验证部分*/
+        function Email_check(strEmail)
+        {
+            var email=document.getElementsByClassName('email');
+            var e1=email[0];
+            var e2=email[1];
+            e1.onclick=function()
+            {
+                e2.innerHTML='请输入邮箱地址';
+                e2.style.color='black';
+            };
+            e1.onblur=function()
+            {
+                if (e1.search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/) != -1)
+                {
+                    e2.innerHTML='验证通过';
+                    e2.style.color='green';
+                }
+                else
+                {
+                    e2.innerHTML='请输入符合规范的邮箱地址';
+                    e2.style.color='red';
+                }
+            };
+        }
+
+
+
+        /*手机号验证部分*/
+        function phone_check()
+        {
+            var Phone=document.getElementsByClassName('phone');
+            var P1=Phone[0];
+            var P2=Phone[1];
+            P1.onclick=function()
+            {
+              P2.innerHTML='请输入手机号';
+                P2.style.color='black';
+            };
+            P1.onblur=function()
+            {
+                if(!isNaN(parseInt(P1.value))&&P1.value.length==11)
+                {
+                    P2.innerHTML='验证通过';
+                    P2.style.color='green';
+
+                }
+                else
+                {
+                    P2.innerHTML='请输入符合规定的手机号';
+                    P2.style.color='red';
+
+                }
+            }
+        }
+        /*总的验证，并弹窗显示*/
+        function check()
+        {
+            document.getElementById('submit').onclick=function()
+            {
+
+                var color_name=document.getElementsByClassName('name')[1].style.color;
+                var color_password=document.getElementsByClassName('password')[1].style.color;
+                var color_ensure=document.getElementsByClassName('ensure')[1].style.color;
+                var color_phone=document.getElementsByClassName('phone')[1].style.color;
+
+                if(color_name=='green'&&color_password=='green'&&color_ensure=='green'&&color_phone=='green')
+                {
+                    alert('信息全部填写正确啦');
+                }
+                else if(color_name=='red')
+                {
+                    alert('姓名填写错误，请重新输入!');
+                }
+                else if(color_password=='red')
+                {
+                    alert('密码填写错误，请重新输入!');
+                }
+                else if(color_ensure=='red')
+                {
+                    alert('两次密码不一致，请重新输入!');
+                }
+                else if(color_phone=='red')
+                {
+                    alert('手机号填写错误，请重新输入!');
+                }
+            };
+
+        }
+        name_check();
+        password_check();
+        password_again_check();
+        Email_check();
+        phone_check();
+        check();
+
+
+    };
+</script>
+
+<style>
+    #log_in{position: absolute;top: 25%;left: 25%;bottom: 25%;right: 25%;background-color: gray;}
+
+    #log_in input
+    {
+        height: 40px;
+        width: 400px;
+        margin: 8px 0;
+        outline: none;
+        line-height: 40px;
+        font-size: 24px;
+        border-radius: 4px;
+    }
+
+
+</style>
+
+<body>
+<div id="log_in">
+    <form>
+        名称:<input type="text" class="name">
+        <div class="name"></div>
+        密码:<input type="password" class="password">
+        <div class="password"></div>
+        确认:<input type="password" class="ensure">
+        <div class="ensure"></div>
+        邮箱:<input type="email" class="email">
+        <div class="email"></div>
+        手机:<input type="number" class="phone">
+        <div class="phone"></div>
+        <input type="button" value="提交信息" id="submit">
+    </form>
+</div>
+
+</body>
+</html>

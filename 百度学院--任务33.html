@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>百度学院--任务33</title>
+</head>
+<style>
+    tr{border: 1px solid #000000;width: 550px;height: 50px;}
+    td{border: 1px solid #000000;width: 50px;height: 50px;text-align: center;position: relative;}
+    #chess {
+        background-color: #f00;
+        position: relative;
+        width: 50px;
+        height: 35px;
+    }
+    #chess.left {
+        border-left: 15px solid #00f;
+    }
+    #chess.right {
+        border-right: 15px solid #00f;
+    }
+    #chess.bottom {
+        border-bottom: 15px solid #00f;
+    }
+    #chess.top {
+        border-top: 15px solid #00f;
+    }
+</style>
+<script>
+    window.onload=function()
+    {
+        var rows = 10;
+        var columns = 10;
+        var chess = document.getElementById('chess');
+        chess.setAttribute('position','absolute');
+        var directions = ['top', 'right', 'bottom', 'left'];
+        var curDir = Math.floor(Math.random() * 4);
+        chess.className = directions[curDir];
+        var x=document.getElementById('chess').cellIndex;
+        var y=document.getElementById('chess').parentNode.rowIndex;
+        var now_x,now_y;
+        document.getElementById('btn1').onclick=function()
+        {
+            var oTxt=document.getElementById('txt1');
+            if(oTxt.value=='TUN LEF')
+            {
+                if(curDir==0)
+                {
+                    curDir=3;
+                }
+                else
+                {
+                    curDir=curDir-1;
+                }
+                chess.className=directions[curDir];
+            }
+            else if(oTxt.value=='TUN RIG')
+            {
+                if(curDir==3)
+                {
+                    curDir=0;
+                }
+                else
+                {
+                    curDir=curDir+1;
+                }
+                chess.className=directions[curDir];
+            }
+            else if(oTxt.value=='TUN BAC')
+            {
+                if(curDir==0||curDir==1)
+                {
+                    curDir=curDir+2;
+                }
+                else
+                {
+                    curDir=curDir-2;
+                }
+                chess.className=directions[curDir];
+            }
+            else if(oTxt.value=='GO')
+            {
+                if(curDir==0)
+                {
+                    chess.style.top=(chess.style.top-50)+'px';
+                }
+                else if(curDir==1)
+                {
+                    chess.style.right=(chess.style.right-50)+'px';
+                }
+            }
+
+        };
+            /*因为rowIndex属性应该是属于<tr>标记，因此在判断rowIndex需要访问父节点，
+            获取行号，可以用rowIndex，列号用cellIndex
+
+            alert(document.getElementById('start').parentNode.rowIndex)*/
+    };
+</script>
+<body>
+<table cellSpacing="0">
+    <tr>
+        <td></td>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td>10</td>
+    </tr>
+
+    <tr>
+        <td>1</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>2</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>3</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>4</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td ></td>
+        <td id="chess"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>5</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>6</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>7</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>8</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>9</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>10</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+<input type="text" id="txt1"><button id="btn1">执行</button>
+</body>
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>京东校园生态</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/lunbo.css">
+</head>
+<script>
+	window.onload=function()
+	{
+		function choose()//获取下拉裁断中所选的地区名
+		{
+			var oSelect=document.getElementById('select1');
+			var index=oSelect.selectedIndex;
+			if(index!=0)
+			{
+				document.getElementById('ipt1').value=oSelect.options[index].value;
+			}
+			else
+			{
+				document.getElementById('ipt1').value="您选择的区域是..";
+			}
+
+		}
+		document.getElementById('select1').onclick=function()//获得下拉菜单中所选的地区名
+		{
+			choose();
+		};
+		/*表单验证部分*/
+		var name=document.getElementById('ipt_name');
+		var age=document.getElementById('ipt_age');
+		var phone=document.getElementById('ipt_phone');
+		var address=document.getElementById('address');
+		var btn_submit=document.getElementById('submit');
+		var talk=document.getElementById('talk');
+		var reg_name=new RegExp('[\u4e00-\u9fa5]');
+		var reg_phone=new RegExp('(13[0-9]|14[0-9]|15[0-9]|18[0-9])\d{8}$');
+
+		var data_flag=[];
+
+		/*验证姓名部分*/
+		name.onclick=function()
+		{
+			name.value='';
+		};
+		name.onblur=function()
+		{
+
+
+			if(name.value.length<=5&&reg_name.test(name.value))
+			{
+				alert('通过验证');
+			}
+			else
+			{
+				alert('没通过');
+				name.value='';
+			}
+		};
+		/*验证年龄部分*/
+		age.onclick=function()
+		{
+			age.value='';
+		};
+		age.onblur=function()
+		{
+			if(!isNaN(parseInt(age.value))&&parseInt(age.value)>=18&&parseInt(age.value)<=30)
+			{
+				alert('通过验证');
+			}
+			else
+			{
+				alert('没通过');
+				age.value='';
+			}
+		};
+		/*验证手机号部分*/
+		phone.onclick=function()
+		{
+			phone.value='';
+		};
+		phone.onblur=function()
+		{
+			if(!isNaN(parseInt(phone.value))&&!reg_phone.test(phone.value))
+			{
+				alert('通过验证');
+			}
+			else
+			{
+				alert('没通过');
+				phone.value='';
+			}
+		};
+		/*处理地址部分*/
+		address.onclick=function()
+		{
+			address.value='';
+		};
+		/*处理输入文字部分*/
+		talk.onclick=function()
+		{
+			talk.value='';
+		}
+		/*整体验证*/
+		btn_submit.onclick=function()
+		{
+			if(name.value!=''&&age.value!=''&&phone.value!=''&&address.value!='')
+			{
+				alert('通过验证，您的资料已上传至管理员处\n敬请等待结果');
+			}
+			else
+			{
+				alert('您还有地方没填好\n请仔细检查')
+			}
+		};
+
+	}
+</script>
+<body>
+<div class="container">
+
+	<div class="header">
+
+		<div class="logo">
+			<img src="images/logo.png">京东校园生态
+		</div>
+
+		<div class="nav">
+			<ul>
+				<li><a href="company.html">公司介绍</a></li>
+				<li><a href="team.html">团队介绍</a></li>
+				<li><a href="project.html">项目介绍</a></li>
+				<li><a href="record.html">精彩记录</a></li>
+				<li><a href="#join_us">加入我们</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="main">
+
+		<div class="feature">
+
+			<div class="feature-wrap">
+
+				<div class="feature-wrap-in">
+					<h1>京东校园生态</h1>
+					<p>新时代，年轻的人们让我们一起<br/>体验不一样的职场！</p>
+					<a href="team.html"><input type="button" value="想要了解更多？"></a>
+
+				</div>
+
+			</div>
+
+			<div class="feature-list">
+				<div>
+					<p>打造全新世界观，让你更爱你的生活</p><span></span>
+				</div>
+				<div>
+					<p>丰富多彩的各种活动，充分发挥青年学生的主人公意识</p><span></span>
+				</div>
+				<div>
+					<p>时尚的新理念，超前体验未知的生活</p><span></span>
+				</div>
+				<div>
+					<p>完善的培养机制，为您的职业生涯打下坚实基础</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="about">
+			<div class="about-up">
+				<img src="images/logo.png">
+				<p>关于京东校园生态，你不知道的还有什么？</p>
+			</div>
+
+			<div class="about-down">
+				<h3>查找京东校园生态各区域的活动信息</h3>
+				<hr/>
+				<p>每个区域都有不同的活动信息，请自主查询您所需要了解的区域</p>
+				<div>
+					<select id="select1">
+						<option >请选择您想查询的区域</option>
+						<option>华中区</option>
+						<option>西北区</option>
+						<option>华南区</option>
+						<option>东北区</option>
+						<option>华北区</option>
+						<option>华东区</option>
+						<option>西南区</option>
+					</select>
+					<input type="text" value="您选择的区域是.." id="ipt1">
+					<a href="project.html"><button id="search">搜索</button></a>
+
+				</div>			
+			</div>
+		</div>
+
+		<div class="show-world">
+			<div id="banner_tabs" class="flexslider">
+				<ul class="slides">
+					<li>
+						<a title="" target="_blank" href="#">
+							<img width="100%" height="853px" alt="" style="background: url(images/1.jpg) no-repeat center;">
+						</a>
+					</li>
+
+					<li>
+						<a title='' href='#'>
+							<img  width="100%" height="853px" alt="" style="background: url(images/2.jpg) no-repeat center;">
+						</a>
+					</li>
+
+					<li>
+						<a title="" href="#">
+							<img width="100%" height="853px" alt="" style="background: url(images/3.jpg) no-repeat center;" >
+						</a>
+					</li>
+					<li>
+						<a title="" href="#">
+							<img width="100%" height="853px" alt="" style="background: url(images/4.jpg) no-repeat center;">
+						</a>
+					</li>
+					<li>
+						<a title="" href="#">
+							<img width="100%" height="853px" alt="" style="background: url(images/5.jpg) no-repeat center;" >
+						</a>
+					</li>
+				</ul>
+
+			</div>
+
+			<div class="show-middle">
+				<div class="middle-left">
+					<h2>京东校园生态</h2>
+					<p></br>2016.04</p>
+				</div>
+				<div class="middle-right">
+					<h3>京东校园生态/<span>01</span></h3>
+					<p>一个由京东金融创建的校园平台，通过培训、活动、实习等搭建高校金融与创业的生态圈，为富有上进行的大学生提供一线金融平台的资源支持
+					为企业及社会培养出一批卓越的毕业生及创业人才</p>
+					<a href="team.html"><button>更多详情</button></a>
+
+				</div>
+			</div>
+
+			<div class="show-bottom">
+				<div>
+					<p>新时代</br>
+					关于爱生活的我们</p>
+					<hr/>
+					<a href="record.html"><button>更多精彩图片</button></a>
+
+				</div>
+				<div>
+					<p>新时代</br>
+					关于努力奋斗的我们</p>
+					<hr/>
+					<a href="record.html"><button>更多精彩图片</button></a>
+				</div>
+				<div>
+					<div><span></span></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="volunteer">
+			<div class="title" id="join_us">
+				<h3>为什么不加入我们呢？</h3>
+				<hr/>
+				<p>京东校园的大家庭需要每一个爱生活的人的加入，如果你够年轻，有梦想，有激情那就不要犹豫，快来加入我们，成为一个在大学期间经历丰富的人</p>
+			</div>
+			<div class="v-sign">
+				<div class="agreement">
+					<h5>加入我们能得到什么？</h5>
+					<p>在这里你可以站在巨人的肩膀上；在这里你可以俯瞰互联网世界的整个布局；在这里你还可以......</p>
+					<span>more</span>
+					<h5>我们为你准备了什么</h5>
+					<p>享受专业导师的支持！<br>完整系统的职业培训！<br>一批志同道合的小伙伴,还有...</p>
+					<span>more</span>
+
+				</div>
+				<div class="form-list">
+					<input type="text" value="姓名：(请填写5个字符以内的汉字)" id="ipt_name">
+					<input type="text" value="年龄：(请填写一个18到30之间的数字)" id="ipt_age">
+					<input type="text" value="联系方式：(请填写一个11位的手机号)" id="ipt_phone">
+					<input type="text" value="联系地址：" id="address">
+					<textarea id="talk"></textarea>
+					<span>请简单描述您加入我们的目的:</span>
+					<input type="submit" value="提交申请" id="submit">
+				</div>
+			</div>
+
+		</div>	
+	</div>
+
+	<div class="footer">
+		<div class="contact">
+			<h3>联系我们</h3>
+			<p>为了更好的获取我们的最新的活动信息，您可以留下您的电子邮箱以便于我们第一时间联系您<br/>也可以通过以下任何方式关注我们动态</p>
+			<div>
+				<input type="text" class="e-m" placeholder="someone@email.com">
+				<input type="submit" class="sub" value="登记您的邮箱">
+			</div>
+			
+			<ul>
+				<li><a href="#"><img src="images/qq.png"></a></li>
+				<li><a href="#"><img src="images/weibo.png"></a></li>
+				<li><a href="#"><img src="images/twitter.png"></a></li>
+				<li><a href="#"><img src="images/web.png"></a></li>
+			</ul>
+			<div id="sao_ma">
+			</div>
+		</div>
+
+		<div class="footer-bottom">
+			<div class="fb-left">@2016京东校园生态</div>
+			<div class="back-to-top"><a href="javascript:scroll(0,0)">Back to top</a></div>
+		</div>
+	</div>
+
+</div>
+
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/slider.js"></script>
+<script type="text/javascript">
+	$(function() {
+		var bannerSlider = new Slider($('#banner_tabs'), {
+			time: 2000,
+			delay: 400,
+			event: 'hover',
+			auto: true,
+			mode: 'fade',
+			controller: $('#bannerCtrl'),
+			activeControllerCls: 'active'
+		});
+
+	})
+</script>
+
+</body>
+</html>
